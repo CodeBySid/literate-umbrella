@@ -19,3 +19,16 @@ after_success:
   - docker push codebysid/nginx_many
   - docker push codebysid/server_many
   - docker push codebysid/worker_many
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-southeast-1"
+  app: "fibby"
+  env: "Fibby-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-590209810786"
+  path: "fibby"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_ACCESS_KEY
