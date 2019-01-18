@@ -18,7 +18,7 @@ before_install:
   - docker build -t codebysid/k8s-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run codebysid/k8sptest npm test -- --coverage
+  - docker run codebysid/k8s-test npm test -- --coverage
 
 deploy:
   provide: script
