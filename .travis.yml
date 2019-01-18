@@ -13,7 +13,7 @@ before_install:
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project k8s-project-228805
   - gcloud config set compute/zone asia-southeast1-a
-  - gcloud container cluster get-credentials k8s-project
+  - gcloud container clusters get-credentials k8s-project
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t codebysid/k8s-test -f ./client/Dockerfile.dev ./client
 
